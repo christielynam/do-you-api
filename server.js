@@ -1,6 +1,7 @@
 const express = require('express')
 const app = express()
 const cors = require('cors')
+const passport = require('passport')
 
 const environment = process.env.NODE_ENV || 'development';
 const configuration = require('./knexfile')[environment];
