@@ -1,5 +1,6 @@
 const express = require('express')
 const app = express()
+const cors = require('cors')
 
 const environment = process.env.NODE_ENV || 'development';
 const configuration = require('./knexfile')[environment];
@@ -12,9 +13,9 @@ app.locals.title = 'Do You'
 
 app.set('port', process.env.PORT || 3001)
 
-app.get('/', (request, response) => {
-  response.send('Hello DO YOU');
-});
+// app.get('/', (request, response) => {
+//   response.send('Hello DO YOU');
+// });
 
 // login user
 app.post('/api/v1/users', (request, response) => {
