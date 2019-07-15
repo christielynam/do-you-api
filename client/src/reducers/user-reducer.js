@@ -1,4 +1,4 @@
-export const userReducer = (state = {}, action) => {
+export const user = (state = {}, action) => {
   switch(action.type) {
     case 'SET_USER':
       return action.user[0]

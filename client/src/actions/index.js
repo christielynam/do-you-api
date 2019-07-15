@@ -16,3 +16,8 @@ export const error = (msg) => ({
   type: 'ERROR',
   msg
 })
+
+export const setAssessments = (assessments) => ({
+  type: 'SET_ASSESSMENTS',
+  assessments
+})
