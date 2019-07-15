@@ -1,0 +1,84 @@
+@import url('https://fonts.googleapis.com/css?family=Life+Savers&display=swap');
+
+.bulb {
+  width: 175px;
+  fill: #FAFAFA;
+}
+
+.bulb-one {
+  height: 400px;
+}
+
+.bulb-two {
+  height: 600px;
+}
+
+.bulb-three {
+  height: 300px;
+}
+
+.bulb-four {
+  height: 500px;
+}
+
+.bulb-link {
+  position: relative;
+}
+
+.bulb-div {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 100%;
+  color: #800080;
+  font-family: 'Life Savers', cursive;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.bulb-div:hover {
+  background-color: #fff;
+  animation: neon3 1.5s ease-in-out infinite alternate;
+}
+
+@keyframes neon3 {
+  from {
+    box-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #FFDD1B, 0 0 70px #FFDD1B, 0 0 80px #FFDD1B, 0 0 100px #FFDD1B, 0 0 150px #FFDD1B;
+  }
+  to {
+    box-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #FFDD1B, 0 0 35px #FFDD1B, 0 0 40px #FFDD1B, 0 0 50px #FFDD1B, 0 0 75px #FFDD1B;
+  }
+}
+
+.login {
+  width: 90px;
+  height: 90px;
+  top: 207px;
+  left: 42px;
+  font-size: 33px;
+}
+
+.sign {
+  width: 120px;
+  height: 120px;
+  top: 276px;
+  left: 27px;
+  font-size: 35px;
+}
+
+.personalities {
+  width: 170px;
+  height: 170px;
+  top: 408px;
+  font-size: 28px;
+  left: 2px;
+}
+
+.assessments {
+  width: 150px;
+  height: 150px;
+  top: 346px;
+  font-size: 26px;
+  left: 12px;
+}
