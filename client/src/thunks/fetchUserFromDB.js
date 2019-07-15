@@ -1,9 +1,10 @@
 import { loading, error, setUser } from '../actions'
+import { baseUrl } from '../utils/baseUrl'
 
 export const fetchUserFromDB = (email, password) => {
   return async dispatch => {
     dispatch(loading(true));
-    const response = await fetch('http://localhost:3001/api/v1/users', {
+    const response = await fetch(`${baseUrl}/api/v1/users`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
