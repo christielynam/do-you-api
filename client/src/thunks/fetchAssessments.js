@@ -1,4 +1,5 @@
 import { loading, error, setAssessments} from '../actions'
+import { secretKey } from '../utils/keys'
 
 export const fetchAssessments = (testType) => {
   return async dispatch => {
@@ -16,6 +17,6 @@ export const fetchAssessments = (testType) => {
     }
     const assessments = await response.json()
     dispatch(loading(false))
-    dispatch(setAssessment(assessments))
+    dispatch(setAssessments(assessments))
   }
 }

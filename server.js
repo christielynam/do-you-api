@@ -52,7 +52,7 @@ app.post('/api/v1/users/new', (request, response) => {
 
   db('users').insert({ name, email, password }, '*')
     .then((users) => {
-      response.status(200).json(users);
+      response.status(201).json(user);
     })
     .catch((error) => {
       response.status(500).json({ error });

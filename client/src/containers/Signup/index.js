@@ -46,8 +46,8 @@ class Signup extends Component {
   handleSubmit = (e) => {
     const { name, email, password } = this.state
     e.preventDefault();
-    let didMatch = this.validatePassword();
-    if(didMatch) {
+    let match = this.validatePassword();
+    if(match) {
       this.props.addUserToDB(name, email, password)
       this.resetForm()
     } else {
