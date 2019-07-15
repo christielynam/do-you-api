@@ -1,7 +1,8 @@
 const express = require('express')
 const app = express()
 const cors = require('cors')
-const passport = require('passport')
+// const passport = require('passport')
+const bodyParser = require('body-parser')
 
 const environment = process.env.NODE_ENV || 'development';
 const configuration = require('./knexfile')[environment];
@@ -14,14 +15,18 @@ app.locals.title = 'Do You'
 
 app.set('port', process.env.PORT || 3001)
 
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+// app.use(express.static(path.join(__dirname, 'public')));
+
 // app.get('/', (request, response) => {
 //   response.send('Hello DO YOU');
 // });
 
 // login user
 app.post('/api/v1/users', (request, response) => {
+  request.body.email = request.body.email.toLowerCase()
   const { email, password } = request.body
-  email = email.toLowerCase()
   
   db('users').where({ email, password }).select()
     .then((users) => {
@@ -37,8 +42,8 @@ app.post('/api/v1/users', (request, response) => {
 
 // create a new user
 app.post('/api/v1/users/new', (request, response) => {
+  request.body.email = request.body.email.toLowerCase()
   const { name, email, password } = request.body
-  email = email.toLowerCase()
 
   if (!name || !email || !password) {
     return response.status(422).json({ error: 'Missing required information to complete request' })
