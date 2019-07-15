@@ -43,9 +43,7 @@ class Signup extends Component {
     })
   }
 
-
   handleSubmit = (e) => {
-    console.log(this.state)
     const { name, email, password } = this.state
     e.preventDefault();
     let didMatch = this.validatePassword();
