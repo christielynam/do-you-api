@@ -34,6 +34,15 @@ class Signup extends Component {
     return (password === confirmPassword) ? true : false
   }
 
+  resetForm = () => {
+    this.setState({
+      name: '',
+      email: '',
+      password: '',
+      confirmPassword: ''
+    })
+  }
+
 
   handleSubmit = (e) => {
     console.log(this.state)
@@ -42,6 +51,7 @@ class Signup extends Component {
     let didMatch = this.validatePassword();
     if(didMatch) {
       this.props.addUserToDB(name, email, password)
+      this.resetForm()
     } else {
       this.setState({
         instruction: 'Something went wrong... Please verify that you have entered the correct password',
