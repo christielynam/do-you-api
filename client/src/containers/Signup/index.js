@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { addUserToDB } from '../../thunks/adduserToDB'
-// import { fetchUserFromDB } from '../../utils/usersAPI';
 import { Redirect } from 'react-router-dom';
 import './styles.scss';
 

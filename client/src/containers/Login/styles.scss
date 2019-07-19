@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');
 
 .login-container {
-  height: 80vh;
+  height: 75vh;
   width: 100%;
   display: flex;
   justify-content: center;
@@ -11,12 +11,13 @@
 
 .input-container {
   width: 60%;
-  height: 80%;
+  height: 90%;
   display: flex;
   background-color: #FAFAFA;
   border-radius: 20px;
   display: flex;
   flex-direction: column;
+  justify-content: space-evenly;
   align-items: center;
 }
 
@@ -43,7 +44,6 @@
   color: #fff;
   border: none;
   cursor: pointer;
-  font-family: 'Open Sans', sans-serif;
   font-weight: bold;
   outline: none;
 }
@@ -59,7 +59,7 @@
 .sign-up-text {
   display: flex;
   flex-direction: column;
-  margin: 50px 0;
+  margin: 30px 0;
   color: #66D9EF;
   font-family: 'Life Savers', cursive;
   text-align: center;
@@ -67,25 +67,5 @@
 
 .signup-link {
   color: #F07B3B;
-}
-
-.facebook-btn {
-  height: 50px;
-  width: 80%;
-  padding: 15px;
-  border: none;
-  color: #fff;
-  cursor: pointer;
-  font-family: 'Open Sans', sans-serif;
-  font-size: 20px;
-  font-weight: bold;
-  line-height: 50px;
-  text-decoration: none;
-  text-align: center;
-}
-
-.facebook-btn {
-  background-color: #4761A5;
-  
 }
 
