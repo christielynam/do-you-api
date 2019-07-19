@@ -77,7 +77,6 @@ class Signup extends Component {
           >
             <h3 className='create-account-heading'>
               Create New Account
-              HERE!!!
             </h3>
             <input
               className='newuser-name'
