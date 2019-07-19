@@ -1,13 +1,9 @@
 import React from 'react'
-import jwt from 'jwt-simple'
 import { connect } from 'react-redux'
-import { Redirect } from 'react-router-dom'
 import './styles.scss'
 import wordcloudMan from '../../assets/wordcloud_man.png'
 import Lightbulb from '../../components/Lightbulb'
 import { setUser } from '../../actions'
-
-const secret = 'xxx'
 
 // const loggedIn = () => {
 //   const token = window.location.href.split('=')[1];
