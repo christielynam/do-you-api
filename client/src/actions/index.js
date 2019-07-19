@@ -21,3 +21,14 @@ export const setAssessments = (assessments) => ({
   type: 'SET_ASSESSMENTS',
   assessments
 })
+
+export const setDisplayResults = (results) => ({
+  type: 'SET_DISPLAY_RESULTS',
+  results
+})
+
+export const setDisplayAssessment = (slides) => ({
+  type: 'SET_DISPLAY_SLIDES',
+  slides
+})
+

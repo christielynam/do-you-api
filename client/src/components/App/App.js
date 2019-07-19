@@ -6,6 +6,7 @@ import Header from '../../containers/Header'
 import Login from '../../containers/Login'
 import Signup from '../../containers/Signup'
 import Controls from '../../containers/Controls'
+import Profile from '../../containers/Profile'
 
 const App = () => {
   return (
@@ -17,6 +18,7 @@ const App = () => {
       <Route exact path='/login' component={Login} />
       <Route exact path='/signup' component={Signup} />
       <Route exact path='/controls' component={Controls} />
+      <Route exact path='/profile' component={Profile} />
     </div>
   )
 }
