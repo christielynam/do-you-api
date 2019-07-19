@@ -32,3 +32,7 @@ export const setDisplayAssessment = (slides) => ({
   slides
 })
 
+export const setPersonalities = (personalities) => ({
+  type: 'SET_PERSONALITIES',
+  personalities
+})

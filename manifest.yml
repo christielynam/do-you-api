@@ -5,4 +5,5 @@ applications:
   instances: 1
   random-route: true
   buildpack: https://github.com/cloudfoundry/nodejs-buildpack
+  command: ./build.sh
   
