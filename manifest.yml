@@ -1,7 +1,8 @@
 ---
 applications:
 - name: do-you
-  memory: 512M
+  memory: 1GB
   instances: 1
   random-route: true
+  buildpack: https://github.com/cloudfoundry/nodejs-buildpack
   
