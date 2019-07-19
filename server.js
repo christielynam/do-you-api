@@ -2,27 +2,18 @@ const express = require('express')
 const app = express()
 const cors = require('cors')
 const path = require('path')
-// const passport = require('passport')
 const bodyParser = require('body-parser')
-
 const environment = process.env.NODE_ENV || 'development';
 const configuration = require('./knexfile')[environment];
 const db = require('knex')(configuration);
-
-app.use(express.json())
-app.use(cors())
-
 app.locals.title = 'Do You'
 
 app.set('port', process.env.PORT || 3001)
-
+app.use(express.json())
+app.use(cors())
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'client/build')));
-
-// app.get('/', (request, response) => {
-//   response.send('Hello DO YOU');
-// });
 
 // login user
 app.post('/api/v1/users', (request, response) => {

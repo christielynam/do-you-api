@@ -48,10 +48,7 @@ class Login extends Component {
     return(
       <div className='login-container'>
         <div className='input-container'>
-          <form
-            className='left-container'
-            onSubmit={this.signInUser}
-          >
+          <form onSubmit={this.signInUser}>
             <h2 className='login-text'>
               Login To Your Account
             </h2>
@@ -78,20 +75,14 @@ class Login extends Component {
               value='Log in'
               disabled={!email || !password}
             />
+            <h2 className='sign-up-text'>
+              Don't Have An Account?
+              <Link className='signup-link'
+                to='/signup'>
+                Sign Up!
+              </Link>
+            </h2>
           </form>
-        <div className='right-container'>
-          <h2 className='sign-up-text'>
-            Don't Have An Account?
-            <Link className='signup-link'
-              to='/signup'>
-              Sign Up!
-            </Link>
-          </h2>
-          <a className='facebook-btn'
-             href='http://localhost:3000/'>
-             Login with Facebook
-          </a>
-        </div>
       </div>
     </div>
     )
