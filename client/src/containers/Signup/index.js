@@ -71,7 +71,6 @@ class Signup extends Component {
     return(
       <section className='container'>
         <div className='signup-container'>
-
           <form
             className='create-user-form'
             onSubmit={this.handleSubmit}
@@ -119,17 +118,6 @@ class Signup extends Component {
               Sign Up
             </button>
           </form>
-
-        <div className='social-media-container'>
-          <h3 className='social-media-heading'>
-            Sign Up thru Social Media
-          </h3>
-          <div className='social-media-buttons'>
-            <button className='facebook-btn'>
-              Sign Up With Facebook
-            </button>
-          </div>
-        </div>
         </div>
       </section>
     )
