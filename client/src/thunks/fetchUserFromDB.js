@@ -15,7 +15,6 @@ export const fetchUserFromDB = (email, password) => {
       dispatch(error(response.statusText))
     }
     const user = await response.json()
-    console.log(user)
     dispatch(loading(false))
     dispatch(setUser(user))
   }

@@ -1,18 +1,21 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-// import fetchContainer from '../../containers/fetch-container';
+import { connect } from 'react-redux'
+import { removeUser, removeResults, removeSlides, removeAssessment } from '../../actions'
 import './styles.scss';
 
-const handleSignOut = (props) => {
+const handleSignOut = () => {
+  const { removeUser, removeResults, removeSlides, removeAssessment } = this.props
   // localStorage.removeItem('user');
-  // props.removeTestsFromStore();
-  // props.removeTestResultsFromStore();
-  // props.removeUserFromStore();
+  removeUser()
+  removeResults()
+  removeSlides()
+  removeAssessment()
 }
 
 const Controls = (props) => {
   const { user } = props
-  const userName = user ? `${user.name.toUpperCase()}` : 'user'
+  const userName = user.id ? `${user.name.toUpperCase()}` : 'user'
 
   return(
     <div className='outer-container'>
@@ -40,7 +43,19 @@ const Controls = (props) => {
         </div>
         </div>
       </div>
-  );
-};
+  )
+}
 
-export default Controls;
+export const mapStateToProps = state => ({
+  user: state.user
+})
+
+export const mapDispatchToProps = dispatch => ({
+  removeUser: () => dispatch(removeUser()),
+  removeResults: () => dispatch(removeResults()),
+  removeAssessment: () => dispatch(removeAssessment()),
+  removeSlides: () => dispatch(removeSlides())
+})
+
+
+export default connect(mapStateToProps)(Controls)

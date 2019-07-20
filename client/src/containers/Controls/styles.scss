@@ -1,0 +1,90 @@
+
+.outer-container {
+  height: 80vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #40404A;
+}
+
+.controls-container {
+  width: 80%;
+  height: 75%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #FAFAFA;
+  border-radius: 20px;
+}
+
+.welcome-container {
+  height: 25vh;
+  width: 70%;
+  padding: 25px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.welcome-msg {
+  color: #66D9EF;
+  font-family: 'Life Savers', cursive;
+  font-size: 45px;
+}
+
+.sign-out-link {
+  width: 200px;
+  padding: 30px;
+  border: none;
+  border-radius: 15px;
+  background-color: #66D9EF;
+  cursor: pointer;
+  text-decoration: none;
+  outline: none;
+}
+
+.sign-out-btn {
+  width: 150px;
+  height: 30px;
+  background-color: transparent;
+  border: none;
+  font-family: 'Life Savers', cursive;
+  font-size: 25px;
+  font-weight: bold;
+  color: #F07B3B;
+  cursor: pointer;
+  outline: none;
+}
+
+.controls-links {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-column-gap: 2em;
+}
+
+.profile-page,
+.personality-types-page,
+.assessments-page {
+  height: 225px;
+  width: 250px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #66D9EF;
+  border-radius: 20px;
+  color: #F07B3B;
+  font-family: 'Life Savers', cursive;
+  font-size: 35px;
+  font-weight: bold;
+  line-height: 125px;
+  text-align: center;
+  text-decoration: none;
+}
+
+.profile-page:hover,
+.personality-types-page:hover,
+.assessments-page:hover {
+  transform: scale(1.1);
+  transition: all 0.5s ease-out;
+}
