@@ -11,7 +11,7 @@ class Profile extends Component {
   constructor() {
     super();
     this.state = {
-      testsArray: [],
+      tests: [],
       testComplete: ''
     }
   }
@@ -21,34 +21,33 @@ class Profile extends Component {
     fetchAllTests(user.id)
   }
 
-  // componentWillReceiveProps(nextProps) {
-  //   if(nextProps.tests) {
-  //     this.setState({ testsArray: nextProps.tests })
-  //   }
-  //   if(nextProps.results) {
-  //     this.setState({ testComplete: 'complete' })
-  //   }
-  //   if(nextProps.slides.length) {
-  //     this.setState({ testComplete: 'incomplete' })
-  //   }
-  // }
+  componentDidUpdate(prevProps) {
+    const { tests, slides, results} = this.props
+    if(tests !== prevProps.tests) {
+      this.setState({ tests: tests })
+    }
+    if(results !== prevProps.results) {
+      this.setState({ testsComplete: 'complete' })
+    }
+    if(slides !== prevProps.slides) {
+      this.setState({ testsComplete: 'incomplete' })
+    }
+  }
 
-  // recentAssessments() {
-  //   const { testsArray } = this.state;
-  //   if (testsArray.length) {
-  //     return testsArray.map(test => {
-  //       return (
-  //         <button
-  //           className='test-btn'
-  //           key={ test.id }
-  //           onClick={() => this.handleRecentTest(test)}>
-  //           <p className='test-type'>{ test.deck_id }</p>
-  //           <p>{test.created_at.split('T')[0]}</p>
-  //         </button>
-  //       )
-  //     })
-  //   }
-  // }
+  recentAssessments() {
+    const { tests } = this.state;
+    if (tests.length) {
+      return tests.map(test => (
+        <button
+          className='test-btn'
+          key={ test.id }
+          onClick={() => this.handleRecentTest(test)}>
+          <p className='test-type'>{test.deck_id}</p>
+          <p>{test.created_at.split('T')[0]}</p>
+        </button>
+      ))
+    }
+  }
 
   handleRecentTest = (test) => {
     this.props.fetchResults(test.test_id);
@@ -70,15 +69,16 @@ class Profile extends Component {
         <div className='profile-container'>
           <h1>your recent assessments.</h1>
           <div className='tests-container'>
-            {/* {loading && <Loading />} */}
-            {/* {error && <Error />}   */}
-            {/* { this.recentAssessments() } */}
+            {loading && <Loading />}
+            {error && <Error />}  
+            { this.recentAssessments() }
           </div>
         </div>
       </div>
     )
   }
 }
+
 
 export const mapStateToProps = state => ({
   loading: state.loading,

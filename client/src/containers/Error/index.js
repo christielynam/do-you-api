@@ -1,9 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux'
 
-const Error = () => {
+const Error = ({ error }) => {
   return (
-    <p>{this.props.error}</p>
+    <p>{error}</p>
   )
 }
 

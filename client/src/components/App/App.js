@@ -10,6 +10,7 @@ import Profile from '../../containers/Profile'
 import PersonalityTypes from '../../containers/PersonalityTypes'
 import AssessmentsList from '../AssessmentsList'
 import Assessments from '../../containers/Assessments'
+import Results from '../../containers/Results'
 
 const App = () => (
   <div className='App'>
@@ -29,7 +30,7 @@ const App = () => (
     <Route exact path='/assessments/heroes' render={() => <Assessments testType={'super-hero'} />} />
     <Route exact path='/assessments/movies' render={() => <Assessments testType={'movies'} />} />
     <Route exact path='/assessments/persuasion' render={() => <Assessments testType={'persuasion'} />} />
-    {/* <Route exact path='/results' component={Results} /> */}
+    <Route exact path='/results' component={Results} />
   </div>
 )
 

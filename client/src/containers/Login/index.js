@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component, Fragment } from 'react'
 import { connect } from 'react-redux';
 import { Link, Redirect } from 'react-router-dom'
 import { fetchUserFromDB } from '../../thunks/fetchUserFromDB'
@@ -31,7 +31,7 @@ class Login extends Component {
   
   componentDidUpdate(prevProps) {
     const { user } = this.props
-    if (user !== prevProps.user) {
+    if (user.id !== prevProps.user.id) {
       this.setState({ loggedIn: true })
       this.updateLocalStorage(user)
     }
@@ -39,6 +39,7 @@ class Login extends Component {
 
   render() {
     const {email, password, loggedIn} = this.state
+    const { user } = this.props
 
     if (loggedIn) {
       return (
@@ -76,6 +77,9 @@ class Login extends Component {
               value='Log in'
               disabled={!email || !password}
             />
+            <div className='error'>
+              {user.error && user.error}
+            </div>
             <h2 className='sign-up-text'>
               Don't Have An Account?
               <Link className='signup-link'

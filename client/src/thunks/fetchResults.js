@@ -2,9 +2,10 @@ import { loading, error, setAssessment, setResults, setSlides } from '../actions
 import { publicKey } from '../utils/keys'
 
 export const fetchResults = (testId) => {
-  return async dispatch => {  
+  return async dispatch => {
+    const url = `https://api.traitify.com/v1/assessments/${testId}?data=blend,types,career_matches`  
     dispatch(loading(true));
-    const response = await fetch(`https://api.traitify.com/v1/assessments/${testId}?data=blend,types,career_matches`, {
+    const response = await fetch(url, {
       method: 'GET',
       headers: {
         'Authorization': `Basic ${publicKey}:x`
@@ -13,17 +14,19 @@ export const fetchResults = (testId) => {
     if (!response.ok) {
       dispatch(error(response.statusText))
     }
-    const parsedResponse = await response.json()
+    const results = await response.json()
+    console.log(results)
     dispatch(loading(false))
-    if (parsedResponse.completed_at) {
-      dispatch(setResults(parsedResponse))
+    if (results.completed_at) {
+      dispatch(setResults(results))
     } else {
-      dispatch(setAssessment({id: parsedResponse.id, deck_id: parsedResponse.deck_id}))
-      dispatch(setSlides(parsedResponse.slides))
+      dispatch(setAssessment(Object.assign({}, { id: results.id, deck_id: results.deck_id })))
+      // dispatch(setSlides(results.slides))
     } 
   }
 }
 
-// Object.assign({}, { id: parsedResponse.id, deck_id: parsedResponse.deck_id })
+
+
 
 
