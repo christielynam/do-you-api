@@ -7,6 +7,7 @@ import CareerResults from '../../components/CareerResults'
 import HeroesResults from '../../components/HerosResults'
 import MoviesResults from '../../components/MoviesResults'
 import PersuasionResults from '../../components/PersuasionResults'
+import { Redirect } from 'react-router-dom'
 import { connect } from 'react-redux'
 
 class Results extends Component {
@@ -53,6 +54,9 @@ class Results extends Component {
   }
 
   render() {
+    if (!this.props.user.id) {
+      return <Redirect to='/login' />
+    }
 
     return (
       <div className='outside-container'>
@@ -70,6 +74,7 @@ class Results extends Component {
 }
 
 export const mapStateToProps = state => ({
+  user: state.user,
   assessment: state.assessment,
   results: state.results
 })

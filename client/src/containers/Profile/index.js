@@ -27,11 +27,11 @@ class Profile extends Component {
       this.setState({ tests: tests })
     }
     if(results !== prevProps.results) {
-      this.setState({ testsComplete: 'complete' })
+      this.setState({ testComplete: 'complete' })
     }
-    if(slides !== prevProps.slides) {
-      this.setState({ testsComplete: 'incomplete' })
-    }
+    // if(slides !== prevProps.slides) {
+    //   this.setState({ testsComplete: 'incomplete' })
+    // }
   }
 
   recentAssessments() {
@@ -54,7 +54,10 @@ class Profile extends Component {
   }
 
   render() {
-    const { error, loading } = this.props;
+    const { error, loading, user } = this.props;
+    if (!user.id) {
+      return <Redirect to='/login' />
+    }
     switch (this.state.testComplete) {
       case 'complete':
         return <Redirect to='/results' />

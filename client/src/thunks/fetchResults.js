@@ -15,12 +15,12 @@ export const fetchResults = (testId) => {
       dispatch(error(response.statusText))
     }
     const results = await response.json()
-    console.log(results)
     dispatch(loading(false))
     if (results.completed_at) {
       dispatch(setResults(results))
     } else {
       dispatch(setAssessment(Object.assign({}, { id: results.id, deck_id: results.deck_id })))
+      console.log(results.slides)
       // dispatch(setSlides(results.slides))
     } 
   }
