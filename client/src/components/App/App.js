@@ -8,6 +8,7 @@ import Signup from '../../containers/Signup'
 import Controls from '../../containers/Controls'
 // import Profile from '../../containers/Profile'
 import PersonalityTypes from '../../containers/PersonalityTypes'
+import AssessmentsList from '../AssessmentsList'
 
 const App = () => (
   <div className='App'>
@@ -20,6 +21,7 @@ const App = () => (
     <Route exact path='/controls' component={Controls} />
     {/* {/* <Route exact path='/profile' component={Profile} /> */}
     <Route exact path='/personality-types' component={PersonalityTypes} />
+    <Route exact path='/assessments' component={AssessmentsList} />
   </div>
 )
 
