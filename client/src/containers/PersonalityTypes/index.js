@@ -4,7 +4,6 @@ import { connect } from 'react-redux'
 import { fetchPersonalities } from '../../thunks/fetchPersonalities'
 import PersonalityTypeContainer from '../../components/PersonalityTypeContainer'
 import Loading from '../../components/Loading'
-import Error from '../Error'
 
 class PersonalityTypes extends Component {
   
@@ -21,7 +20,7 @@ class PersonalityTypes extends Component {
   }
 
   render() {
-    const { loading, error } = this.props;
+    const { loading } = this.props;
 
     return (
       <div className='background-container'>
@@ -30,7 +29,6 @@ class PersonalityTypes extends Component {
             personality types.
           </h2>
           {loading && <Loading />}
-          {error && <Error />}
           {this.handleTypesDisplay()}
         </div>
       </div>
