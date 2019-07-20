@@ -49,6 +49,7 @@ class Signup extends Component {
     if(match) {
       this.props.addUserToDB(name, email, password)
       this.resetForm()
+      this.setState({ loggedIn: true })
     } else {
       this.setState({
         instruction: 'Something went wrong... Please verify that you have entered the correct password',

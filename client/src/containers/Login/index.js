@@ -23,7 +23,7 @@ class Login extends Component {
     localStorage.setItem('user', JSON.stringify(user))
   }
 
-  signInUser = async (e) => {
+  loginUser = async (e) => {
     const { email, password } = this.state
     e.preventDefault()
     await this.props.fetchUserFromDB(email, password)
@@ -51,7 +51,7 @@ class Login extends Component {
     return(
       <div className='login-container'>
         <div className='input-container'>
-          <form onSubmit={this.signInUser}>
+          <form onSubmit={this.loginUser}>
             <h2 className='login-text'>
               Login To Your Account
             </h2>

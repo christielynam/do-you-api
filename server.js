@@ -25,7 +25,8 @@ app.post('/api/v1/users', (request, response) => {
       if(!users.length) {
         return response.status(404).json({ error: 'Invalid email or password' })
       }
-      response.status(200).json(users);
+      const user = {id: users[0].id, name: users[0].name, email: users[0].email}
+      response.status(200).json(user);
     })
     .catch((error) => {
       response.status(500).json({ error });
@@ -43,7 +44,7 @@ app.post('/api/v1/users/new', (request, response) => {
 
   db('users').insert({ name, email, password }, '*')
     .then((users) => {
-      response.status(201).json(user);
+      response.status(201).json(users[0]);
     })
     .catch((error) => {
       response.status(500).json({ error });
