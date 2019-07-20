@@ -31,10 +31,6 @@ export const setPersonalities = (personalities) => ({
   personalities
 })
 
-export const removePersonalities = () => ({
-  type: 'REMOVE_PERSONALITIES'
-})
-
 export const setTests = (tests) => ({
   type: 'SET_TESTS',
   tests
@@ -44,12 +40,20 @@ export const removeTests = () => ({
   type: 'SET_TESTS'
 })
 
-export const setDisplayAssessment = (slides) => ({
-  type: 'SET_DISPLAY_SLIDES',
+export const setSlides = (slides) => ({
+  type: 'SET_SLIDES',
   slides
 })
 
-export const setDisplayResults = (results) => ({
-  type: 'SET_DISPLAY_RESULTS',
+export const removeSlides = () => ({
+  type: 'REMOVE_SLIDES'
+})
+
+export const setResults = (results) => ({
+  type: 'SET_RESULTS',
   results
+})
+
+export const removeResults = () => ({
+  type: 'REMOVE_RESULTS'
 })
