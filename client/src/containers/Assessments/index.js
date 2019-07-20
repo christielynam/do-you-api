@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import './Assessments.scss'
 import Loading from '../../components/Loading'
 import { fetchAssessment } from '../../thunks/fetchAssessment'
+import { addTestInfo } from '../../thunks/addTestInfo'
 import { fetchSlides } from '../../thunks/fetchSlides'
 import { setResults } from '../../actions'
 import { updateSlideResponse } from '../../thunks/updateSlideResponse'
@@ -26,43 +27,21 @@ class Assessments extends Component {
   }
 
   componentDidUpdate(prevProps) {
-    const { assessment, fetchSlides } = this.props
+    const { user, assessment, fetchSlides, addTestInfo } = this.props
     if(assessment !== prevProps.assessment) {
+      const { id, deck_id } = assessment
       fetchSlides(assessment.id)
+      addTestInfo(id, deck_id, user.id)
     }
   }
   
-  // TODO get rid of CWRP
-  // async componentWillReceiveProps(nextProps) {
-    //   const objectKeys = Object.keys(nextProps.assessment)
-    //   const { user, setResults } = this.props
-    
-    //   if (objectKeys.length && !this.props.slides.length) {
-      //     const { id, deck_id } = nextProps.assessment
-      //     await this.storeTestInfo(id, deck_id, user.id)
-      //     setResults(id);
-      //   }
-      // }
-      
   manageSlideUpdate = async (trait, boolean) => {
     const { assessment, updateSlideResponse } = this.props;
     trait.response = boolean;
     await updateSlideResponse(trait, assessment.id);
     this.setState({ counter: this.state.counter + 1 })
   }
-      
-  storeTestInfo = async (test_id, deck_id, user_id) => {
-    const url = 'http://localhost:3000/api/v1/results'
-    const response = await fetch(url, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-        body: JSON.stringify({ test_id, deck_id, user_id })
-      })
-    return await response.json()
-  }
-            
+               
   handleSlideDisplay(slideToRender) {
     const { slides } = this.props;
     if (slides.length) {
@@ -106,6 +85,7 @@ export const mapStateToProps = state => ({
 
 export const mapDispatchToProps = dispatch => ({
   fetchAssessment: (testType) => dispatch(fetchAssessment(testType)),
+  addTestInfo: (test_id, deck_id, user_id) => dispatch(addTestInfo(test_id, deck_id, user_id)),
   fetchSlides: (testId) => dispatch(fetchSlides(testId)),
   setResults: (results) => dispatch(setResults(results)),
   updateSlideResponse: (slide, testId) => dispatch(updateSlideResponse(slide, testId))

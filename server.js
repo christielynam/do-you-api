@@ -59,10 +59,7 @@ app.post('/api/v1/results', (request, response) => {
 
   db('results').insert({ test_id, deck_id, user_id }, '*')
     .then((results) => {
-      response.status(200).json(results);
-    })
-    .catch((error) => {
-      response.status(500).json({ error })
+      response.status(201).json(results[0]);
     })
 })
 
