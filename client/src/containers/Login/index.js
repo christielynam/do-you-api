@@ -23,21 +23,19 @@ class Login extends Component {
     localStorage.setItem('user', JSON.stringify(user))
   }
 
-  loginUser = async (e) => {
+  loginUser = (e) => {
     const { email, password } = this.state
     e.preventDefault()
-    await this.props.fetchUserFromDB(email, password)
-    await this.setState({ loggedIn: true })
-    // this.updateLocalStorage(this.props.user)
+    this.props.fetchUserFromDB(email, password)
   }
-
-  // componentDidUpdate(prevProps) {
-  //   const { user } = this.props
-  //   if (prevProps.user !== {}) {
-  //     this.setState({ loggedIn: true })
-  //     this.updateLocalStorage(user)
-  //   }
-  // }
+  
+  componentDidUpdate(prevProps) {
+    const { user } = this.props
+    if (user !== prevProps.user) {
+      this.setState({ loggedIn: true })
+      this.updateLocalStorage(user)
+    }
+  }
 
   render() {
     const {email, password, loggedIn} = this.state
@@ -100,4 +98,4 @@ export const mapDispatchToProps = dispatch => ({
   fetchUserFromDB: (email, pw) => dispatch(fetchUserFromDB(email, pw))
 })
 
-export default connect(null, mapDispatchToProps)(Login);
+export default connect(mapStateToProps, mapDispatchToProps)(Login);
