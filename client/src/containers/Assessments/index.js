@@ -20,10 +20,9 @@ class Assessments extends Component {
     }
   }
 
-  async componentDidMount() {
+  componentDidMount() {
     const { user, testType, fetchAssessment } = this.props;
-    !user && this.setState({loggedIn: false})
-    await fetchAssessment(testType)
+    !user.id ? this.setState({loggedIn: false}) : fetchAssessment(testType)
   }
 
   componentDidUpdate(prevProps) {
