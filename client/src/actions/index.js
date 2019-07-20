@@ -31,9 +31,9 @@ export const setPersonalities = (personalities) => ({
   personalities
 })
 
-export const setTests = (testInfo) => ({
+export const setTests = (tests) => ({
   type: 'SET_TESTS',
-  testInfo
+  tests
 })
 
 export const removeTests = () => ({

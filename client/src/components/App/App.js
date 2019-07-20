@@ -6,7 +6,7 @@ import Header from '../../containers/Header'
 import Login from '../../containers/Login'
 import Signup from '../../containers/Signup'
 import Controls from '../../containers/Controls'
-// import Profile from '../../containers/Profile'
+import Profile from '../../containers/Profile'
 import PersonalityTypes from '../../containers/PersonalityTypes'
 import AssessmentsList from '../AssessmentsList'
 import Assessments from '../../containers/Assessments'
@@ -20,7 +20,7 @@ const App = () => (
     <Route exact path='/login' component={Login} />
     <Route exact path='/signup' component={Signup} />
     <Route exact path='/controls' component={Controls} />
-    {/* {/* <Route exact path='/profile' component={Profile} /> */}
+    <Route exact path='/profile' component={Profile} />
     <Route exact path='/personality-types' component={PersonalityTypes} />
     <Route exact path='/assessments' component={AssessmentsList} />
     <Route exact path='/assessments/core' render={() => <Assessments testType={'core'} />} />

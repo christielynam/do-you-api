@@ -19,7 +19,6 @@ app.use(express.static(path.join(__dirname, 'client/build')));
 app.post('/api/v1/users', (request, response) => {
   request.body.email = request.body.email.toLowerCase()
   const { email, password } = request.body
-  
   db('users').where({ email, password }).select()
     .then((users) => {
       if(!users.length) {
@@ -28,16 +27,12 @@ app.post('/api/v1/users', (request, response) => {
       const user = {id: users[0].id, name: users[0].name, email: users[0].email}
       response.status(200).json(user);
     })
-    .catch((error) => {
-      response.status(500).json({ error });
-    });
 });
 
 // create a new user
 app.post('/api/v1/users/new', (request, response) => {
   request.body.email = request.body.email.toLowerCase()
   const { name, email, password } = request.body
-
   if (!name || !email || !password) {
     return response.status(422).json({ error: 'Missing required information to complete request' })
   }
@@ -52,11 +47,9 @@ app.post('/api/v1/users/new', (request, response) => {
 // storing the test id in results table
 app.post('/api/v1/results', (request, response) => {
   const { test_id, deck_id, user_id } = request.body
-
   if (!test_id || !deck_id || !user_id) {
     return response.status(422).json({ error: 'Missing required information to complete request' })
   }
-
   db('results').insert({ test_id, deck_id, user_id }, '*')
     .then((results) => {
       response.status(201).json(results[0]);
@@ -65,7 +58,6 @@ app.post('/api/v1/results', (request, response) => {
 
 // retrieve all tests for a user
 app.get('/api/v1/results/:id', (request, response) => {
-
   db('results').where({
     user_id: parseInt(request.params.id)
   }).select()
@@ -75,9 +67,6 @@ app.get('/api/v1/results/:id', (request, response) => {
       }
       response.status(200).json(userResults);
     })
-    .catch((error) => {
-      response.status(500).json({ error });
-    });
 })
 
 app.listen(app.get('port'), () => {

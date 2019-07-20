@@ -1,4 +1,4 @@
-import { loading, error, setAssessments, setDisplayResults, setDisplayAssessment } from '../actions'
+import { loading, error, setAssessment, setResults, setSlides } from '../actions'
 import { publicKey } from '../utils/keys'
 
 export const fetchResults = (testId) => {
@@ -16,10 +16,10 @@ export const fetchResults = (testId) => {
     const parsedResponse = await response.json()
     dispatch(loading(false))
     if (parsedResponse.completed_at) {
-      dispatch(setDisplayResults(parsedResponse))
+      dispatch(setResults(parsedResponse))
     } else {
-      dispatch(setAssessments({id: parsedResponse.id, deck_id: parsedResponse.deck_id}))
-      dispatch(setDisplayAssessment(parsedResponse.slides))
+      dispatch(setAssessment({id: parsedResponse.id, deck_id: parsedResponse.deck_id}))
+      dispatch(setSlides(parsedResponse.slides))
     } 
   }
 }

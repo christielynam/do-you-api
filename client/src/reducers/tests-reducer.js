@@ -1,7 +1,7 @@
 export const tests = (state = [], action) => {
   switch(action.type) {
     case 'SET_TESTS':
-      return [...state, action.testInfo]
+      return action.tests
     case 'REMOVE_TESTS':
       return []
     default:
