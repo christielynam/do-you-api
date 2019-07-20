@@ -1,0 +1,19 @@
+.personality-container {
+  margin: 60px auto;
+  width: 75%;
+  height: 80%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #FAFAFA;
+  border-radius: 20px;
+}
+
+.personality-title {
+  margin: 25px;
+  color: #F07B3B;
+  font-family: 'Life Savers', cursive;
+  font-size: 50px;
+  font-weight: bold;
+  text-align: center;
+}

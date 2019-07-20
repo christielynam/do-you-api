@@ -7,28 +7,17 @@ import Loading from '../../components/Loading';
 import Error from '../Error';
 
 class PersonalityTypes extends Component {
-  constructor() {
-    super();
-    this.state = {
-      personalitiesArray: []
-    };
-  }
-
+  
   componentDidMount() {
-    this.props.fetchPersonalities();
-  }
-
-  componentWillReceiveProps(nextProps) {
-    if (nextProps.fetchedPersonalities.length > 0) {
-      this.setState({ personalitiesArray: nextProps.fetchedPersonalities });
-    }
+    const { personalities, fetchPersonalities } = this.props
+    !personalities.length && fetchPersonalities();
   }
 
   handleTypesDisplay() {
-    const { personalitiesArray } = this.state;
-    if (personalitiesArray.length) {
-      return personalitiesArray.map( object => <PersonalityTypeContainer key={object.id} { ...object } /> )
-    }
+    const { personalities } = this.props;
+    return personalities.map(personality => (
+    <PersonalityTypeContainer key={personality.id} {...personality} />
+    )) 
   }
 
   render() {
@@ -51,7 +40,8 @@ class PersonalityTypes extends Component {
 
 export const mapStateToProps = state => ({
   loading: state.loading,
-  error: state.error
+  error: state.error,
+  personalities: state.personalities
 })
 
 export const mapDispatchToProps = dispatch => ({
