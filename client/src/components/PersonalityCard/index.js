@@ -9,7 +9,7 @@ const PersonalityCard = ({personality_type, description}) => {
         <p className='type-text'>{description}</p>
       </div>
     </article>
-  );
+  )
 }
 
 export default PersonalityCard;

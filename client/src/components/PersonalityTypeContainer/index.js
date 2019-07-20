@@ -1,10 +1,11 @@
-import React from 'react';
+import React from 'react'
 import './PersonalityTypeContainer.scss'
 import PersonalityCard from '../PersonalityCard'
 
-const PersonalityTypeContainer = ({ id, name, badges }) => {
-
-  const displayCareerTypes = badges.map( object => <PersonalityCard key={object.personality_type} {...object} /> )
+const PersonalityTypeContainer = ({ name, badges }) => {
+  const displayCareerTypes = badges.map(object => (
+    <PersonalityCard key={object.personality_type} {...object} /> 
+  ))
 
   return (
     <div className='types-container'>
@@ -16,4 +17,4 @@ const PersonalityTypeContainer = ({ id, name, badges }) => {
   )
 }
 
-export default PersonalityTypeContainer;
+export default PersonalityTypeContainer

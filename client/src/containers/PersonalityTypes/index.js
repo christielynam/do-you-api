@@ -1,10 +1,10 @@
-import React, { Component } from 'react';
-import './PersonalityTypes.scss';
-import { connect } from 'react-redux';
+import React, { Component } from 'react'
+import './PersonalityTypes.scss'
+import { connect } from 'react-redux'
 import { fetchPersonalities } from '../../thunks/fetchPersonalities'
 import PersonalityTypeContainer from '../../components/PersonalityTypeContainer'
-import Loading from '../../components/Loading';
-import Error from '../Error';
+import Loading from '../../components/Loading'
+import Error from '../Error'
 
 class PersonalityTypes extends Component {
   
@@ -16,7 +16,7 @@ class PersonalityTypes extends Component {
   handleTypesDisplay() {
     const { personalities } = this.props;
     return personalities.map(personality => (
-    <PersonalityTypeContainer key={personality.id} {...personality} />
+      <PersonalityTypeContainer key={personality.id} {...personality} />
     )) 
   }
 
@@ -34,7 +34,7 @@ class PersonalityTypes extends Component {
           {this.handleTypesDisplay()}
         </div>
       </div>
-    );
+    )
   }
 }
 
