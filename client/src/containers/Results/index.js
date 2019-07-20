@@ -1,12 +1,12 @@
 import React, { Component } from 'react'
 import './Results.scss'
 import { fetchResults } from '../../thunks/fetchResults'
-// import ResultsIntroExtro from '../ResultsIntroExtro/ResultsIntroExtro'
-// import ResultsCore from '../ResultsCore/ResultsCore'
-// import ResultsCareer from '../ResultsCareer/ResultsCareer'
-// import ResultsHeroes from '../ResultsHeroes/ResultsHeroes'
-// import ResultsMovies from '../ResultsMovies/ResultsMovies'
-// import ResultsPersuasion from '../ResultsPersuasion/ResultsPersuasion'
+import IntroExtroResults from '../../components/IntroExtroResults'
+import CoreResults from '../../components/CoreResults'
+import CareerResults from '../../components/CareerResults'
+import HeroesResults from '../../components/HerosResults'
+import MoviesResults from '../../components/MoviesResults'
+import PersuasionResults from '../../components/PersuasionResults'
 import { connect } from 'react-redux'
 
 class Results extends Component {
@@ -30,27 +30,27 @@ class Results extends Component {
     }
   }
 
-  // handleResultsDisplay() {
-  //   const { deckId } = this.state;
-  //   const { assessmentResults } = this.props;
+  handleResultsDisplay() {
+    const { deckId } = this.state;
+    const { results } = this.props;
 
-  //   switch (deckId) {
-  //     case 'introvert-extrovert':
-  //       return <ResultsIntroExtro { ...assessmentResults } />
-  //     case 'career-deck' :
-  //       return <ResultsCareer { ...assessmentResults } />
-  //     case 'core':
-  //       return <ResultsCore { ...assessmentResults } />
-  //     case 'super-hero':
-  //       return <ResultsHeroes { ...assessmentResults } />
-  //     case 'persuasion':
-  //       return <ResultsPersuasion { ...assessmentResults } />
-  //     case 'movies':
-  //       return <ResultsMovies { ...assessmentResults } />
-  //     default:
-  //       return <h4>No results available.</h4>
-  //   }
-  // }
+    switch (deckId) {
+      case 'introvert-extrovert':
+        return <IntroExtroResults {...results} />
+      case 'career-deck' :
+        return <CareerResults {...results} />
+      case 'core':
+        return <CoreResults {...results} />
+      case 'super-hero':
+        return <HeroesResults {...results} />
+      case 'persuasion':
+        return <PersuasionResults {...results} />
+      case 'movies':
+        return <MoviesResults {...results} />
+      default:
+        return <h4>No results available.</h4>
+    }
+  }
 
   render() {
 
@@ -61,7 +61,7 @@ class Results extends Component {
             your assessment results.
           </h2>
           <div className='results-container'>
-            {/* { this.handleResultsDisplay() } */}
+            { this.handleResultsDisplay() }
           </div>
         </div>
       </div>

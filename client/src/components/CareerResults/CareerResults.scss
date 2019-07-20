@@ -1,0 +1,146 @@
+.blend {
+  padding: 20px;
+  border: 2px solid #800080;
+}
+
+.blend-heading {
+  padding-bottom: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.blend-heading > h2 {
+  padding: 20px;
+  font-family: 'Life Savers', cursive;
+  font-size: 40px;
+  color: #800080;
+}
+
+.blend-text {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+  font-size: 16px;
+  color: #646473;
+  letter-spacing: 1px;
+}
+
+.blend-text > h4 {
+  font-family: 'Roboto', sans-serif;
+  font-weight: bold;
+  font-size: 30px;
+  color: #800080;
+}
+
+.blend-extra-info {
+  display: flex;
+}
+
+.complement-conflict {
+  width: 50%;
+  padding: 10px 10px 0 0;
+}
+
+.complement-conflict > h6 {
+  font-family: 'Roboto', sans-serif;
+  font-weight: bold;
+  font-size: 20px;
+  color: #800080;
+}
+
+.complement-conflict > p {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+  font-size: 16px;
+  color: #646473;
+  letter-spacing: 1px;
+}
+
+.career-matches {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.career-matches > h2 {
+  padding: 25px;
+  font-family: 'Life Savers', cursive;
+  font-size: 40px;
+  color: #800080;
+}
+
+.career-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-row-gap: 1.5em;
+  grid-column-gap: 1.5em;
+  grid-auto-rows: minmax(300px, auto);
+  padding: 15px;
+  position: relative;
+}
+
+.career-card {
+  position: relative;
+  margin: 10px;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #40404A;
+  border-radius: 20px;
+  color: #FAFAFA;
+  font-family: 'Roboto', sans-serif;
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.career-card:hover {
+  transform: scale(1.1);
+  transition: all 0.5s ease-out;
+}
+
+.career-card > img {
+  border-radius: 20px;
+}
+
+.career-card > h4 {
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.career-card > h6 {
+  font-weight: 400;
+  font-size: 16px;
+}
+
+.description-text {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  border-radius: 20px;
+  padding: 20px;
+  font-family: 'Roboto', sans-serif;
+  overflow: scroll;
+}
+
+.text {
+  display: none;
+  font-size: 15px;
+  font-weight: 300;
+  text-align: center;
+}
+
+.description-text:hover {
+  display: block;
+  background-color: #800080;
+  color: #fff;
+  transition: all 0.5s ease-in;
+}
+
+.description-text:hover .text {
+  display: block;
+  transition: all 0.5s ease-in;
+}

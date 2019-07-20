@@ -1,5 +1,5 @@
 import React from 'react'
-import './ResultsHeroes.css'
+import './HeroesResults.scss'
 
 const HeroesResults = ({ personality_blend, personality_types }) => {
 

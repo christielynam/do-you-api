@@ -1,0 +1,47 @@
+.intro-extro-container {
+  display: flex;
+}
+
+.intro-extro-type {
+  margin: 10px;
+  padding: 20px;
+  border: 2px solid #800080;
+}
+
+.title-container {
+  padding-bottom: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.title-container > h4 {
+  padding: 20px;
+  font-family: 'Life Savers', cursive;
+  font-size: 40px;
+  color: #800080;
+}
+
+.main-info > p,
+.extra-info > p {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+  font-size: 16px;
+  color: #646473;
+  letter-spacing: 1px;
+}
+
+.score-info {
+  font-family: 'Roboto', sans-serif;
+  font-weight: bold;
+  font-size: 20px;
+  color: #800080;
+}
+
+.extra-info > h4,
+.keywords {
+  font-family: 'Roboto', sans-serif;
+  font-weight: bold;
+  font-size: 20px;
+  color: #800080;
+}

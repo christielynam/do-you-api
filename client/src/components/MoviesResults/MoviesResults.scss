@@ -1,0 +1,103 @@
+.blend {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 20px;
+  text-align: center;
+}
+
+.blend-text {
+  margin: 10px;
+  color: #40404A;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+}
+
+.movies-type > h2,
+.blend > h2 {
+  margin-bottom: 10px;
+  font-family: 'Life Savers', cursive;
+  color: #800080;
+  font-size: 35px;
+  text-align: center;
+}
+
+.personality-matches {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.personality-card {
+  position: relative;
+  margin: 10px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #66D9EF;
+  border-radius: 20px;
+  color: #FAFAFA;
+  font-family: 'Life Savers', cursive;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.personality-card:hover {
+  transform: scale(1.1);
+  transition: all 0.5s ease-out;
+}
+
+.description-text {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  border-radius: 20px;
+  padding: 20px;
+  font-family: 'Roboto', sans-serif;
+  overflow: scroll;
+}
+
+.text {
+  display: none;
+  font-size: 15px;
+  font-weight: 300;
+  text-align: center;
+}
+
+.description-text:hover {
+  display: block;
+  background-color: #800080;
+  color: #fff;
+  transition: all 0.5s ease-in;
+}
+
+.description-text:hover .text {
+  display: block;
+  transition: all 0.5s ease-in;
+}
+
+.personality-card > img {
+  padding: 5px;
+}
+
+.personality-card > h3 {
+  padding: 5px;
+  font-size: 30px;
+  font-weight: bold;
+  color: #F07B3B;
+}
+
+.personality-card > p {
+  padding: 5px;
+}
+
+.personality-card > h4 {
+  font-family: 'Roboto', sans-serif;
+  padding: 10px;
+  font-size: 20px;
+  color: #fff;
+}

@@ -1,5 +1,5 @@
 import React from 'react'
-import './ResultsIntroExtro.scss'
+import './IntroExtroResults.scss'
 
 const IntroExtroResults = ({ personality_types }) => {
 

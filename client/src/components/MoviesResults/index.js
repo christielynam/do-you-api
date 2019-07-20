@@ -1,5 +1,5 @@
 import React from 'react'
-import './ResultsMovies.scss'
+import './MoviesResults.scss'
 
 const MoviesResults = ({ personality_blend, personality_types }) => {
 

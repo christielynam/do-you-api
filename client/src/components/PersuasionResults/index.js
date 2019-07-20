@@ -1,5 +1,5 @@
 import React from 'react'
-import './ResultsPersuasion.scss'
+import './PersuasionResults.scss'
 
 const PersuasionResults = ({ personality_types }) => {
 

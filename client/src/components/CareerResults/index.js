@@ -1,5 +1,5 @@
 import React from 'react'
-import './ResultsCareer.scss'
+import './CareerResults.scss'
 
 const CareerResults = ({ personality_blend, personality_types, career_matches}) => {
 
