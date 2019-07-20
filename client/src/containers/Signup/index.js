@@ -17,8 +17,8 @@ class Signup extends Component {
     }
   }
 
-  componentWillReceiveProps(nextProps) {
-    if (nextProps.user !== {}) {
+  componentDidUpdate(prevProps) {
+    if (this.props.user !== prevProps.user) {
       this.setState({ loggedIn: true })
     }
   }
@@ -49,7 +49,6 @@ class Signup extends Component {
     if(match) {
       this.props.addUserToDB(name, email, password)
       this.resetForm()
-      this.setState({ loggedIn: true })
     } else {
       this.setState({
         instruction: 'Something went wrong... Please verify that you have entered the correct password',
@@ -124,8 +123,12 @@ class Signup extends Component {
   }
 }
 
+export const mapStateToProps = state => ({
+  user: state.user
+})
+
 export const mapDispatchToProps = dispatch => ({
   addUserToDB: (name, email, password) => dispatch(addUserToDB(name, email, password))
 })
 
-export default connect(null, mapDispatchToProps)(Signup);
+export default connect(mapStateToProps, mapDispatchToProps)(Signup);

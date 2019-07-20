@@ -47,9 +47,6 @@ app.post('/api/v1/users/new', (request, response) => {
       const user = {id: users[0].id, name: users[0].name, email: users[0].email}
       response.status(201).json(user);
     })
-    .catch((error) => {
-      response.status(500).json({ error });
-    })
 })
 
 // storing the test id in results table
