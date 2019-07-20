@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux'
-import { assessments } from './assessments-reducer'
+import { assessment } from './assessment-reducer'
 import { error } from './error-reducer'
 import { loading } from './loading-reducer'
 import { personalities } from './personalities-reducer'
@@ -9,7 +9,7 @@ import { tests } from './tests-reducer'
 import { user } from './user-reducer'
 
 export const rootReducer = combineReducers({
-  assessments,
+  assessment,
   error,
   loading,
   personalities,

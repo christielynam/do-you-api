@@ -9,6 +9,7 @@ import Controls from '../../containers/Controls'
 // import Profile from '../../containers/Profile'
 import PersonalityTypes from '../../containers/PersonalityTypes'
 import AssessmentsList from '../AssessmentsList'
+import Assessments from '../../containers/Assessments'
 
 const App = () => (
   <div className='App'>
@@ -22,6 +23,13 @@ const App = () => (
     {/* {/* <Route exact path='/profile' component={Profile} /> */}
     <Route exact path='/personality-types' component={PersonalityTypes} />
     <Route exact path='/assessments' component={AssessmentsList} />
+    <Route exact path='/assessments/core' render={() => <Assessments testType={'core'} />} />
+    <Route exact path='/assessments/career' render={() => <Assessments testType={'career-deck'} />} />
+    <Route exact path='/assessments/intro-extro' render={() => <Assessments testType={'introvert-extrovert'} />} />
+    <Route exact path='/assessments/heroes' render={() => <Assessments testType={'super-hero'} />} />
+    <Route exact path='/assessments/movies' render={() => <Assessments testType={'movies'} />} />
+    <Route exact path='/assessments/persuasion' render={() => <Assessments testType={'persuasion'} />} />
+    {/* <Route exact path='/results' component={Results} /> */}
   </div>
 )
 

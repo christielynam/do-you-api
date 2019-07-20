@@ -17,13 +17,13 @@ export const error = (msg) => ({
   msg
 })
 
-export const setAssessments = (assessments) => ({
-  type: 'SET_ASSESSMENTS',
-  assessments
+export const setAssessment = (assessment) => ({
+  type: 'SET_ASSESSMENT',
+  assessment
 })
 
-export const removeAssessments = () => ({
-  type: 'REMOVE_ASSESSMENTS'
+export const removeAssessment = () => ({
+  type: 'REMOVE_ASSESSMENT'
 })
 
 export const setPersonalities = (personalities) => ({

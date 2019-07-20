@@ -1,0 +1,47 @@
+.slide-caption {
+  padding: 10px;
+  background-color: #40404A;
+  color: #66D9EF;
+  font-family: 'Life Savers', cursive;
+  font-size: 40px;
+  letter-spacing: 2px;
+  text-align: center;
+}
+
+.btn-container {
+  height: 75px;
+  display: flex;
+  justify-content: center;
+  background-color: #40404A;
+}
+
+.me-btn,
+.not-me-btn {
+  height: 50px;
+  width: 150px;
+  margin: 10px;
+  border: none;
+  border-radius: 10px;
+  color: #FAFAFA;
+  cursor: pointer;
+  font-family: 'Life Savers', cursive;
+  font-size: 30px;
+  font-weight: bold;
+  outline: none;
+}
+
+.me-btn {
+  background-color: #F07B3B
+}
+
+.not-me-btn {
+  background-color: #800080;
+}
+
+.slide-image {
+  display: inherit;
+  height: 420px;
+  width: unset;
+  margin: auto;
+  border-radius: 20px;
+}

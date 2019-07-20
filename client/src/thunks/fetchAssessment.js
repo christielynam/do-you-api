@@ -1,7 +1,7 @@
-import { loading, error, setAssessments} from '../actions'
+import { loading, error, setAssessment} from '../actions'
 import { secretKey } from '../utils/keys'
 
-export const fetchAssessments = (testType) => {
+export const fetchAssessment = (testType) => {
   return async dispatch => {
     dispatch(loading(true));
     const response = await fetch('https://api.traitify.com/v1/assessments', {
@@ -15,8 +15,8 @@ export const fetchAssessments = (testType) => {
     if(!response.ok) {
       dispatch(error(response.statusText))
     }
-    const assessments = await response.json()
+    const assessment = await response.json()
     dispatch(loading(false))
-    dispatch(setAssessments(assessments))
+    dispatch(setAssessment(assessment))
   }
 }
