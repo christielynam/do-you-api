@@ -12,7 +12,6 @@ export const addTestInfo = (test_id, deck_id, user_id) => {
         body: JSON.stringify({ test_id, deck_id, user_id })
       })
     const testInfo = await response.json()
-    console.log(testInfo)
     dispatch(setTests(testInfo))
   }
 }

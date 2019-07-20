@@ -4,9 +4,7 @@ import Loading from '../../components/Loading'
 import { fetchAssessment } from '../../thunks/fetchAssessment'
 import { addTestInfo } from '../../thunks/addTestInfo'
 import { fetchSlides } from '../../thunks/fetchSlides'
-import { setResults } from '../../actions'
 import { updateSlideResponse } from '../../thunks/updateSlideResponse'
-// import Results from '../Results/Results';
 import Slide from '../../components/Slide'
 import { Link, Redirect } from 'react-router-dom'
 import { connect } from 'react-redux'
@@ -34,10 +32,10 @@ class Assessments extends Component {
     }
   }
   
-  manageSlideUpdate = async (trait, boolean) => {
+  manageSlideUpdate = (slide, boolean) => {
     const { assessment, updateSlideResponse } = this.props;
-    trait.response = boolean;
-    await updateSlideResponse(trait, assessment.id);
+    slide.response = boolean;
+    updateSlideResponse(slide, assessment.id);
     this.setState({ counter: this.state.counter + 1 })
   }
                
@@ -86,7 +84,6 @@ export const mapDispatchToProps = dispatch => ({
   fetchAssessment: (testType) => dispatch(fetchAssessment(testType)),
   addTestInfo: (test_id, deck_id, user_id) => dispatch(addTestInfo(test_id, deck_id, user_id)),
   fetchSlides: (testId) => dispatch(fetchSlides(testId)),
-  setResults: (results) => dispatch(setResults(results)),
   updateSlideResponse: (slide, testId) => dispatch(updateSlideResponse(slide, testId))
 })
 
