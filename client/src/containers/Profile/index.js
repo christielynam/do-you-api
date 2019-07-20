@@ -29,9 +29,9 @@ class Profile extends Component {
     if(results !== prevProps.results) {
       this.setState({ testComplete: 'complete' })
     }
-    // if(slides !== prevProps.slides) {
-    //   this.setState({ testsComplete: 'incomplete' })
-    // }
+    if(slides !== prevProps.slides) {
+      this.setState({ testComplete: 'incomplete' })
+    }
   }
 
   recentAssessments() {
@@ -54,7 +54,7 @@ class Profile extends Component {
   }
 
   render() {
-    const { error, loading, user } = this.props;
+    const { error, loading, user, assessment } = this.props;
     if (!user.id) {
       return <Redirect to='/login' />
     }
@@ -62,7 +62,8 @@ class Profile extends Component {
       case 'complete':
         return <Redirect to='/results' />
       case 'incomplete':
-        return <Redirect to='/assessments/core' />
+        const path = `/assessments/${assessment.deck_id}`
+        return <Redirect to={path} />
       default:
         break
     }
@@ -87,6 +88,7 @@ export const mapStateToProps = state => ({
   loading: state.loading,
   error: state.error,
   user: state.user,
+  assessment: state.assessment,
   tests: state.tests,
   slides: state.slides,
   results: state.results
