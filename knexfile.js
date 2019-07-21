@@ -1,11 +1,14 @@
-// Update with your config settings.
 require('dotenv').config()
-
-// const vcap_services = JSON.parse(process.env.VCAP_SERVICES)
-// const uri = vcap_services.elephentsql[0].credentials.uri
+console.log(process.env.DATABASE_URL)
+// const vcapServices = require('vcap_services')
+// const credentials = vcapServices.findCredentials({ service: 'elephantsql' })
+// console.log(credentials)
+// const vcapServices = process.env.VCAP_SERVICES
+// console.log(vcapServices)
+// const uri = vcapServices.elephentsql[0].credentials.uri
 // console.log(uri)
 
-module.exports = {
+config = {
 
   development: {
     client: 'pg',
@@ -21,10 +24,12 @@ module.exports = {
 
   production: {
   client: 'pg',
-  connection: process.env.DATABASE_URL + '?ssl=true',
+  connection: process.env.DATABASE_URL,
   migrations: {
     directory: './db/migrations'
   },
   useNullAsDefault: true,
   },  
 }
+
+module.exports = config
