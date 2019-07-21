@@ -1,5 +1,9 @@
 // Update with your config settings.
-require('dotenv').config();
+require('dotenv').config()
+
+// const vcap_services = JSON.parse(process.env.VCAP_SERVICES)
+// const uri = vcap_services.elephentsql[0].credentials.uri
+// console.log(uri)
 
 module.exports = {
 
