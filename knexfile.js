@@ -9,15 +9,15 @@ module.exports = {
 
   development: {
     client: 'pg',
-    connection: 'postgres://localhost/do_you'
+    connection: 'postgres://localhost/do_you',
+    migrations: {
+      directory: './db/migrations'
+    },
+    seeds: {
+      directory: './db/seeds/dev'
+    },
+    useNullAsDefault: true,
   },
-  migrations: {
-    directory: './db/migrations'
-  },
-  seeds: {
-    directory: './db/seeds/dev'
-  },
-  useNullAsDefault: true,
 
   production: {
   client: 'pg',

@@ -4,5 +4,6 @@ applications:
   memory: 1GB
   instances: 1
   random-route: true
+  command: knex migrate:latest && npm start
   buildpack: https://github.com/cloudfoundry/nodejs-buildpack
   
