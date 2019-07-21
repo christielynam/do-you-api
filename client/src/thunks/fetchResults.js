@@ -20,7 +20,7 @@ export const fetchResults = (testId) => {
       dispatch(setResults(results))
     } else {
       dispatch(setAssessment(Object.assign({}, { id: results.id, deck_id: results.deck_id })))
-      dispatch(setSlides(results.slides))
+      // dispatch(setSlides(results.slides))
     } 
   }
 }

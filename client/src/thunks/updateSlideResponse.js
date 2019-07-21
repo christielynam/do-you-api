@@ -21,7 +21,6 @@ export const updateSlideResponse = (slide, testId) => {
       dispatch(error(response.statusText))
     }
     dispatch(loading(false))
-    const updated = await response.json()
-    console.log(updated) 
+    return await response.json()
   }
 }

@@ -54,7 +54,7 @@ class Profile extends Component {
   }
 
   render() {
-    const { error, loading, user, assessment } = this.props;
+    const { loading, user, assessment, tests } = this.props;
     if (!user.id) {
       return <Redirect to='/login' />
     }
@@ -74,7 +74,7 @@ class Profile extends Component {
           <h1>your recent assessments.</h1>
           <div className='tests-container'>
             {loading && <Loading />}
-            {error && <Error />}  
+            {tests.error && tests.error} 
             { this.recentAssessments() }
           </div>
         </div>
@@ -86,7 +86,6 @@ class Profile extends Component {
 
 export const mapStateToProps = state => ({
   loading: state.loading,
-  error: state.error,
   user: state.user,
   assessment: state.assessment,
   tests: state.tests,

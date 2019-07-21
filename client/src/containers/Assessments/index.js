@@ -1,11 +1,11 @@
 import React, { Component } from 'react'
 import './Assessments.scss'
 import Loading from '../../components/Loading'
+import Slide from '../../components/Slide'
 import { fetchAssessment } from '../../thunks/fetchAssessment'
 import { addTestInfo } from '../../thunks/addTestInfo'
 import { fetchSlides } from '../../thunks/fetchSlides'
 import { updateSlideResponse } from '../../thunks/updateSlideResponse'
-import Slide from '../../components/Slide'
 import { Link, Redirect } from 'react-router-dom'
 import { connect } from 'react-redux'
 
