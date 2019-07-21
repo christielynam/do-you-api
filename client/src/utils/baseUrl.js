@@ -1,5 +1,7 @@
-require('dotenv').config()
-
-export const getBaseUrl = () => process.env.NODE_ENV === 'production' 
-? process.env.DATABASE_URL 
-: 'http://localhost:3001';
+export const getBaseUrl = () => {
+  if (process.env.NODE_ENV === 'production')  {
+    return ''
+  } else {
+    return 'http://localhost:3001'
+  }
+}
