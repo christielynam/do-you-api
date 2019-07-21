@@ -1,11 +1,19 @@
+require('dotenv').config()
+
 const express = require('express')
 const app = express()
 const cors = require('cors')
 const path = require('path')
 const bodyParser = require('body-parser')
-const environment = process.env.NODE_ENV || 'development';
-const configuration = require('./knexfile')[environment];
-const db = require('knex')(configuration);
+const environment = process.env.NODE_ENV || 'development'
+const configuration = require('./knexfile')[environment]
+const db = require('knex')(configuration)
+
+// const cfenv = require('cfenv')
+// const appEnv = cfenv.getAppEnv()
+// console.log(appEnv)
+// const services = appEnv.getService('elephantsql')
+// console.log(services)
 
 app.locals.title = 'Do You'
 
@@ -73,3 +81,7 @@ app.get('/api/v1/results/:id', (request, response) => {
 app.listen(app.get('port'), () => {
   console.log(`${app.locals.title} is running on http://localhost:${app.get('port')}.`)
 })
+
+// app.listen(appEnv.port, appEnv.bind, function() {
+//   console.log(`Server starting on ${appEnv.url}`)
+// })

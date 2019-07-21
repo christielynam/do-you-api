@@ -1,12 +1,15 @@
-require('dotenv').config()
-console.log(process.env.DATABASE_URL)
-// const vcapServices = require('vcap_services')
-// const credentials = vcapServices.findCredentials({ service: 'elephantsql' })
-// console.log(credentials)
+const cfenv = require('cfenv')
+const appEnv = cfenv.getAppEnv()
+console.log(appEnv)
+const services = appEnv.getService('elephantsql')
+console.log(services)
+// console.log(process.env.DATABASE_URL)
+
+// const vcap = JSON.parse(process.env.VCAP_SERVICES)
+// console.log(vcap)
+
 // const vcapServices = process.env.VCAP_SERVICES
 // console.log(vcapServices)
-// const uri = vcapServices.elephentsql[0].credentials.uri
-// console.log(uri)
 
 config = {
 
