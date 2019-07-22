@@ -2,7 +2,7 @@ import { loading, error, setAssessment, setResults, setSlides } from '../actions
 import { publicKey } from '../utils/keys'
 
 export const fetchResults = (testId) => {
-  return async dispatch => {
+  return async (dispatch, getState) => {
     const url = `https://api.traitify.com/v1/assessments/${testId}?data=blend,types,career_matches`  
     dispatch(loading(true));
     const response = await fetch(url, {
@@ -14,13 +14,14 @@ export const fetchResults = (testId) => {
     if (!response.ok) {
       dispatch(error(response.statusText))
     }
-    const results = await response.json()
+    const result = await response.json()
     dispatch(loading(false))
-    if (results.completed_at) {
-      dispatch(setResults(results))
+    if (result.completed_at) {
+      dispatch(setResults(result))
     } else {
+      const { results } = getState()
       dispatch(setAssessment(Object.assign({}, { id: results.id, deck_id: results.deck_id })))
-      // dispatch(setSlides(results.slides))
+      dispatch(setSlides(results.slides))
     } 
   }
 }

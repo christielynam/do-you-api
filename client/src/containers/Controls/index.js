@@ -4,8 +4,8 @@ import { connect } from 'react-redux'
 import { removeUser, removeResults, removeSlides, removeAssessment } from '../../actions'
 import './styles.scss';
 
-const handleSignOut = () => {
-  const { removeUser, removeResults, removeSlides, removeAssessment } = this.props
+const handleSignOut = (props) => {
+  const { removeUser, removeResults, removeSlides, removeAssessment } = props
   // localStorage.removeItem('user');
   removeUser()
   removeResults()
@@ -58,4 +58,4 @@ export const mapDispatchToProps = dispatch => ({
 })
 
 
-export default connect(mapStateToProps)(Controls)
+export default connect(mapStateToProps, mapDispatchToProps)(Controls)

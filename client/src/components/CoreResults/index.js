@@ -5,7 +5,7 @@ const CoreResults = ({ personality_blend, personality_types, }) => {
 
   const complementConflict = personality_blend.details.map( object => {
     return (
-      <div className='complement-conflict'>
+      <div className='complement-conflict' key={object.title}>
         <h6>{ object.title }</h6>
         <p>{ object.body }</p>
       </div>
@@ -15,7 +15,7 @@ const CoreResults = ({ personality_blend, personality_types, }) => {
   const personalityMatches = personality_types.map( type => {
     const { name, description, badge, keywords } = type.personality_type
     return (
-      <div className='personality-card'>
+      <div className='personality-card' key={type.personality_type.name}>
         <img src={ badge.image_small } alt="personality-icon"/>
         <h3>{ name }</h3>
         <h4>Match Score: { Math.round(type.score * 1000)/1000 }</h4>

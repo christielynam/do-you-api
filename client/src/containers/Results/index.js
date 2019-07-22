@@ -11,12 +11,6 @@ import { Redirect } from 'react-router-dom'
 import { connect } from 'react-redux'
 
 class Results extends Component {
-  constructor() {
-    super();
-    this.state = {
-      deckId: '',
-    }
-  }
 
   componentDidMount() {
     if (this.props.assessment !== {}) {
@@ -24,18 +18,11 @@ class Results extends Component {
     }
   }
 
-  componentDidUpdate(prevProps) {
-    const { results } = this.props
-    if (results !== prevProps.results) {
-      this.setState({ deckId: results.deck_id })
-    }
-  }
-
   handleResultsDisplay() {
-    const { deckId } = this.state;
     const { results } = this.props;
+    const { deck_id } = results
 
-    switch (deckId) {
+    switch (deck_id) {
       case 'introvert-extrovert':
         return <IntroExtroResults {...results} />
       case 'career-deck' :
@@ -49,7 +36,7 @@ class Results extends Component {
       case 'movies':
         return <MoviesResults {...results} />
       default:
-        return <h4>No results available.</h4>
+        break
     }
   }
 

@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import Loading from '../../components/Loading'
-import Error from '../Error'
 import { connect } from 'react-redux'
 import { Redirect } from 'react-router-dom'
 import { fetchAllTests } from '../../thunks/fetchAllTests'
@@ -22,10 +21,7 @@ class Profile extends Component {
   }
 
   componentDidUpdate(prevProps) {
-    const { tests, slides, results} = this.props
-    if(tests !== prevProps.tests) {
-      this.setState({ tests: tests })
-    }
+    const { slides, results} = this.props
     if(results !== prevProps.results) {
       this.setState({ testComplete: 'complete' })
     }
@@ -35,12 +31,12 @@ class Profile extends Component {
   }
 
   recentAssessments() {
-    const { tests } = this.state;
+    const { tests } = this.props;
     if (tests.length) {
       return tests.map(test => (
         <button
           className='test-btn'
-          key={ test.id }
+          key={test.id}
           onClick={() => this.handleRecentTest(test)}>
           <p className='test-type'>{test.deck_id}</p>
           <p>{test.created_at.split('T')[0]}</p>
@@ -72,10 +68,10 @@ class Profile extends Component {
       <div className='background-container'>
         <div className='profile-container'>
           <h1>your recent assessments.</h1>
-          <div className='tests-container'>
             {loading && <Loading />}
             {tests.error && tests.error} 
-            { this.recentAssessments() }
+          <div className='tests-container'>
+            {this.recentAssessments()}
           </div>
         </div>
       </div>
