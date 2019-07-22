@@ -1,8 +1,9 @@
-import { loading, error, setAssessment, setResults, setSlides } from '../actions'
+import { loading, error, setAssessment, setResults } from '../actions'
+import { fetchSlides } from '../thunks/fetchSlides'
 import { publicKey } from '../utils/keys'
 
 export const fetchResults = (testId) => {
-  return async (dispatch, getState) => {
+  return async dispatch => {
     const url = `https://api.traitify.com/v1/assessments/${testId}?data=blend,types,career_matches`  
     dispatch(loading(true));
     const response = await fetch(url, {
@@ -16,11 +17,12 @@ export const fetchResults = (testId) => {
     }
     const results = await response.json()
     dispatch(loading(false))
-    if (results.completed_at) {
+    if (results.status === 'complete') {
       dispatch(setResults(results))
     } else {
-      await dispatch(setAssessment(results))
-      dispatch(setSlides(results.slides))
+      dispatch(setAssessment(results))
+      dispatch(fetchSlides(results.id))
+      // dispatch(setSlides(assessment.slides))
     } 
   }
 }
